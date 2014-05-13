@@ -14,4 +14,30 @@ if(Meteor.isClient) {
         }
     }
     Template.swarm.bugz = bugz;
+
+    
+    window.setInterval(function () {
+        $swarm = $('#swarm');
+        var x = $swarm.attr('data-position-x'),
+            y = $swarm.attr('data-position-y');
+        console.log(x, y);
+        
+        if ($swarm.attr('data-direction') == "left") {
+            x--;
+        } else {
+            x++;
+        }
+        if (x%20 === 0)
+            y++;
+        
+        if ($swarm.attr('data-position-x') == 200) {
+            $swarm.attr('data-direction', 'left');
+        } else if ($swarm.attr('data-position-x') <= 0) {
+            $swarm.attr('data-direction', 'right');
+        }
+
+        $swarm.attr('transform', 'translate(' + x + ', ' + y + ')');
+        $swarm.attr('data-position-x', x);
+        $swarm.attr('data-position-y', y);
+    }, 70);
 }
