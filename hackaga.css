@@ -13,3 +13,11 @@ html, body {
   right: 0;
   background-color: #000;
 }
+
+.missile {
+  fill: yellow;
+}
+
+.burst {
+  fill: red;
+}
