@@ -20,7 +20,6 @@ if(Meteor.isClient) {
         $swarm = $('#swarm');
         var x = $swarm.attr('data-position-x'),
             y = $swarm.attr('data-position-y');
-        console.log(x, y);
         
         if ($swarm.attr('data-direction') == "left") {
             x--;

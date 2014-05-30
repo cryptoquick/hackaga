@@ -13,6 +13,8 @@
   </header>
   <div id="container">
     <svg>
+      {{> swarm}}
+      {{> all}}
       {{#each missiles}}
         {{#unless deleted}}
           <rect x="{{x}}" y="{{y}}" width="25" height="25" class="missile {{burst}}"></rect>
