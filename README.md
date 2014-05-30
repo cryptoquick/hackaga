@@ -1,4 +1,4 @@
 hackaga
 =======
 
-:laughingcat:
+:smiley_cat:
