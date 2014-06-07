@@ -1,8 +1,17 @@
 <template name="swarm">
 <g id="swarm" data-position-x="0" data-position-y="0">
     {{#each bugz}}
-        <rect x="{{x}}" y="{{y}}"
-        width="{{width}}" height="{{height}}" fill="white">{{> apple}}</rect>
+        <g transform="translate({{x}},{{y}})" width="{{width}}" height="{{height}}" class="{{graphic}}">
+        	{{#if graphicIs "apple"}}
+	        	{{> apple}}
+	        {{/if}}
+        	{{#if graphicIs "greenapple"}}
+	        	{{> greenapple}}
+	        {{/if}}
+        	{{#if graphicIs "corn"}}
+	        	{{> corn}}
+	        {{/if}}
+        </g>
     {{/each}}
 </g>
 </template>

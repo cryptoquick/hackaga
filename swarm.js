@@ -7,14 +7,19 @@ if(Meteor.isClient) {
 
     var horiz_spacing = width / 8;
     var vert_spacing = (height / 4);
+
+    var graphics = ["apple", "greenapple", "corn"]
     
     for( var i = 0; i < 8; i++ ) {
         for( var j = 0; j < 4; j++ ) {
-            bugz.push({x: i*horiz_spacing, y: j*vert_spacing, width: dim, height: dim});
+            var graphic = graphics[Math.floor(Math.random()*3)];
+            bugz.push({x: i*horiz_spacing, y: j*vert_spacing, width: dim, height: dim, graphic: graphic});
         }
     }
     Template.swarm.bugz = bugz;
-
+    Template.swarm.graphicIs = function (graphic) {
+      return this.graphic === graphic;
+    };
     
     window.setInterval(function () {
         $swarm = $('#swarm');
@@ -40,3 +45,4 @@ if(Meteor.isClient) {
         $swarm.attr('data-position-y', y);
     }, 70);
 }
+

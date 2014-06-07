@@ -12,12 +12,22 @@ html, body {
   left: 0;
   right: 0;
   background-color: #000;
+  background: url(graphics/cartoon-grass.jpg);
 }
 
 .missile {
-  fill: yellow;
+  /*fill: yellow;*/
 }
 
 .burst {
   fill: red;
+}
+.thing {
+  position: absolute;
+}
+.tractor {
+  position: absolute;
+  width:94px;
+  height:100px;
+  /*background: url(graphics/tractor.png) no-repeat;*/
 }
