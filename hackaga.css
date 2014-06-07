@@ -22,12 +22,3 @@ html, body {
 .burst {
   fill: red;
 }
-.thing {
-  position: absolute;
-}
-.tractor {
-  position: absolute;
-  width:94px;
-  height:100px;
-  /*background: url(graphics/tractor.png) no-repeat;*/
-}
