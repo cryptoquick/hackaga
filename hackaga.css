@@ -12,10 +12,11 @@ html, body {
   left: 0;
   right: 0;
   background-color: #000;
+  background: url(graphics/cartoon-grass.jpg);
 }
 
 .missile {
-  fill: yellow;
+  /*fill: yellow;*/
 }
 
 .burst {

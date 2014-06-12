@@ -13,14 +13,21 @@
   </header>
   <div id="container">
     <svg>
+      <defs>
+        <pattern id="gmo" x="0" y="0" height="59" width="80" patternUnits="objectBoundingBox" >
+            <image xlink:href="graphics/gmo.jpg" x="0" y="0" width="80" height="59" />
+        </pattern>
+      </defs>
       {{> swarm}}
       {{> all}}
       {{#each missiles}}
         {{#unless deleted}}
-          <rect x="{{x}}" y="{{y}}" width="25" height="25" class="missile {{burst}}"></rect>
+          <rect transform="translate({{x}}, {{y}})" x="0" y="0" width="80" height="59" class="missile {{burst}}" fill="url(#gmo)"></rect>
         {{/unless}}
       {{/each}}
-      <rect x="{{playerX}}" y="{{playerY}}" width="100" height="100" fill="white"></rect>
+      <g transform="translate({{playerX}}, {{playerY}})">
+        {{> tractor}}
+      </g>
     </svg>
   </div>
 </template>

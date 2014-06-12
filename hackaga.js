@@ -17,7 +17,7 @@ if (Meteor.isClient) {
   window.missileInterval = setInterval(function () {
     var missiles = Session.get('missiles');
     missiles.forEach(function (m, i, arr) {
-      if (m.y < 50) {
+      if (m.y < 0) {
         m.deleted = true;
       }
       else {
@@ -78,7 +78,7 @@ if (Meteor.isClient) {
       if (evt.which === 38) {
         var missiles = Session.get('missiles');
         missiles.push({
-          x: Session.get('x'),
+          x: Session.get('x') + 10,
           y: missileStartY
         });
         Session.set('missiles', missiles);
