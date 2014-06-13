@@ -8,19 +8,22 @@ if(Meteor.isClient) {
     var horiz_spacing = width / 8;
     var vert_spacing = (height / 4);
 
-    var graphics = ["apple", "greenapple", "corn"]
+    var graphics = ["apple", "greenapple", "corn"];
     
     for( var i = 0; i < 8; i++ ) {
         for( var j = 0; j < 4; j++ ) {
             var graphic = graphics[Math.floor(Math.random()*3)];
-            bugz.push({x: i*horiz_spacing, y: j*vert_spacing, width: dim, height: dim, graphic: graphic});
+            bugz.push({id: i*4+j, x: i*horiz_spacing, y: j*vert_spacing, width: dim, height: dim, graphic: graphic});
         }
     }
-    Template.swarm.bugz = bugz;
+    Template.swarm.bugz = function(){
+        return Session.get('swarm');
+    };
     Template.swarm.graphicIs = function (graphic) {
       return this.graphic === graphic;
     };
-    
+    Session.set('swarm', bugz);
+
     window.setInterval(function () {
         $swarm = $('#swarm');
         var x = $swarm.attr('data-position-x'),
@@ -44,5 +47,6 @@ if(Meteor.isClient) {
         $swarm.attr('data-position-x', x);
         $swarm.attr('data-position-y', y);
     }, 70);
+
 }
 

@@ -16,30 +16,54 @@ if (Meteor.isClient) {
   
   window.missileInterval = setInterval(function () {
     var missiles = Session.get('missiles');
+    var swarm = Session.get('swarm');
     missiles.forEach(function (m, i, arr) {
-      if (m.y < 0) {
-        m.deleted = true;
+      if (m.y < -10) {
+        arr[i] = undefined;
       }
       else {
         m.y = m.y - 30;
+        var collision = _.detect(swarm, function(bug){
+          var bugPosition = document.getElementById("bug-"+bug.id).getBoundingClientRect();
+          return m.x > bugPosition.left && m.x < bugPosition.right &&
+                 m.y > bugPosition.top && m.y < bugPosition.bottom;
+        });
+        if (collision) {
+          arr[i] = undefined;
+          Session.set('swarm', _.without(swarm, collision));
+          explode(m);
+        }
       }
     });
-    Session.set('missiles', missiles);
+    Session.set('missiles', _.compact(missiles));
   }, 100);
   
   Template.game.missiles = function () {
     return Session.get('missiles');
   };
   
-  Template.game.burst = function () {
-    if (Session.get('missilePop')) {
-      Session.set('missilePop');
-      return 'burst'
+  Session.set('explosions', []);
+  function explode(coords){
+    var explosions = Session.get('explosions');
+    if (coords.x && coords.y) {
+      explosions.push(coords);
+      coords['graphic'] = Math.random() > 0.5? "0" : "1";
+      Session.set('explosions', explosions);
+      var e = explosions
+      setTimeout(function(){
+        var explosions = Session.get('explosions');
+        Session.set('explosions', _.without(explosions, _.findWhere(explosions, coords)));
+      }, 500);
     }
-    else {
-      return '';
-    }
+  }
+
+  Template.game.explosions = function () {
+    return Session.get('explosions');
   };
+  Template.game.graphicIs = function (graphic) {
+    return this.graphic === graphic;
+  };
+
   
   Template.game.playerX = function () {
     return Session.get('x');

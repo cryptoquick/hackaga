@@ -1,7 +1,7 @@
 <template name="swarm">
 <g id="swarm" data-position-x="0" data-position-y="0">
     {{#each bugz}}
-        <g transform="translate({{x}},{{y}})" width="{{width}}" height="{{height}}" class="{{graphic}}">
+        <g transform="translate({{x}},{{y}})" width="{{width}}" height="{{height}}" class="{{graphic}}" id="bug-{{id}}">
         	{{#if graphicIs "apple"}}
 	        	{{> apple}}
 	        {{/if}}
