@@ -22,3 +22,15 @@ html, body {
 .burst {
   fill: red;
 }
+
+#message {
+  position: absolute;
+  width: 100%;
+  top:50%;
+  margin-top: -100px;
+  line-height: 200px;
+  font-size:200px;
+  text-align: center;
+  font-family: "Helvetica Condensed", "Arial Narrow", sans-serif;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+}

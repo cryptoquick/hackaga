@@ -19,9 +19,12 @@
         </pattern>
       </defs>
       {{> swarm}}
+      <g transform="translate({{playerX}}, {{playerY}})">
+        {{> tractor}}
+      </g>
       {{#each missiles}}
         {{#unless deleted}}
-          <rect transform="translate({{x}}, {{y}})" x="0" y="0" width="80" height="59" class="missile {{burst}}" fill="url(#gmo)"></rect>
+          <rect transform="translate({{x}}, {{y}})" x="0" y="0" width="80" height="59" class="missile {{burst}}" fill="#dddd00"></rect>
         {{/unless}}
       {{/each}}
       {{#each explosions}}
@@ -38,9 +41,7 @@
             {{/if}}
           </g>
       {{/each}}
-      <g transform="translate({{playerX}}, {{playerY}})">
-        {{> tractor}}
-      </g>
     </svg>
+    <div id="message"></div>
   </div>
 </template>
