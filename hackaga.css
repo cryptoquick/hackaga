@@ -2,6 +2,17 @@ html, body {
   margin: 0;
   padding: 0;
 }
+header {
+  position: absolute;
+  z-index: 10;
+}
+h1 {
+  color:#ffffff;
+  font-family: "Helvetica Condensed", "Arial Narrow", sans-serif;
+  margin: 2px;
+  font-size: 22px;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+}
 
 #container > svg {
 /*   width: 100%;
@@ -21,4 +32,16 @@ html, body {
 
 .burst {
   fill: red;
+}
+
+#message {
+  position: absolute;
+  width: 100%;
+  top:50%;
+  margin-top: -100px;
+  line-height: 200px;
+  font-size:200px;
+  text-align: center;
+  font-family: "Helvetica Condensed", "Arial Narrow", sans-serif;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
 }
